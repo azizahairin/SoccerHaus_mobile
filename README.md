@@ -56,3 +56,41 @@ Metode `build()` menggunakan `BuildContext` agar Flutter bisa merender widget de
 - **Hot Restart** → Menjalankan ulang seluruh aplikasi dan menghapus semua state. Cocok saat ada perubahan besar di kode.  
 
 ---
+
+# ⚽️ Tugas 8 — Flutter Navigation, Layouts, Forms, and Input Elements (SoccerHaus)
+
+## 1. Perbedaan Navigator.push() dan Navigator.pushReplacement()
+`Navigator.push()` menambahkan halaman baru di atas stack halaman yang sedang aktif, sehingga pengguna masih bisa kembali ke halaman sebelumnya dengan tombol **Back**.  
+Sedangkan `Navigator.pushReplacement()` menggantikan halaman yang sedang aktif dengan halaman baru, jadi halaman lama dihapus dari stack dan tidak bisa kembali ke sana.  
+
+Pada aplikasi:
+- `Navigator.push()` digunakan saat membuka halaman **Create Product** dari halaman utama, agar pengguna bisa kembali ke home setelah selesai mengisi form.  
+- `Navigator.pushReplacement()` digunakan pada navigasi dari **drawer**, supaya halaman baru menggantikan halaman sebelumnya dan tidak menumpuk di stack.
+
+---
+
+## 2. Pemanfaatan Hierarchy Widget (Scaffold, AppBar, Drawer)
+Struktur halaman dibangun menggunakan **Scaffold** sebagai kerangka utama yang menyediakan area untuk **AppBar**, **body**, dan **Drawer**.  
+- **Scaffold** menjaga agar semua halaman memiliki tata letak konsisten.  
+- **AppBar** digunakan untuk menampilkan judul aplikasi “SoccerHaus” di setiap halaman.  
+- **Drawer** berisi menu navigasi ke halaman **Home Page** dan **Create Product**, sehingga pengguna bisa berpindah halaman dengan mudah.  
+
+---
+
+## 3. Kelebihan Layout Widget: Padding, SingleChildScrollView, dan ListView  
+- **Padding** → Memberikan jarak antar elemen agar tidak menempel dan tampak lebih rapi.  
+  Contoh: setiap `TextFormField` di halaman form dibungkus `Padding` agar tampil proporsional.  
+- **SingleChildScrollView** → Membuat seluruh konten form dapat digulir ke bawah, berguna saat form panjang dan melebihi tinggi layar.  
+  Contoh: seluruh elemen input di dalam form dibungkus `SingleChildScrollView` supaya tidak overflow.  
+- **ListView** → Cocok untuk menampilkan daftar elemen yang jumlahnya dinamis atau banyak.  
+
+Penggunaan kombinasi ini membuat tampilan form di halaman **Create Product** tetap responsif dan mudah digunakan di berbagai ukuran layar.
+
+---
+
+## 4. Penyesuaian Warna Tema Aplikasi  
+Warna tema diatur melalui `ThemeData` di `MaterialApp`, menggunakan skema warna biru (`Colors.blue`) sebagai warna utama dan `Colors.blueAccent[400]` sebagai warna sekunder.  
+Pemilihan warna ini menyesuaikan identitas visual brand **Football Shop**.
+Dengan tema warna konsisten, seluruh elemen seperti **AppBar**, **button**, dan **ikon** terlihat selaras dan memperkuat branding.
+
+---

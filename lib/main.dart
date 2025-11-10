@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soccerhaus_mobile/menu.dart';
+import 'package:soccerhaus_mobile/screens/menu.dart';
 
 void main() {
   runApp(const SoccerHausApp());
