@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:soccerhaus_mobile/widgets/left_drawer.dart';
 import 'package:soccerhaus_mobile/widgets/product_card.dart';
 
+// ===== Colors =====
+const Color brandBlue = Color(0xFF3F5A83);
+const Color brandPink = Color(0xFFE2A7B6);
+const Color successGreen = Color(0xFFDDDDAE);
+
 // ===== ItemHomepage =====
 class ItemHomepage {
   final String name;
@@ -18,9 +23,9 @@ class MyHomePage extends StatelessWidget {
   final String npm = "2406438504";
 
   final List<ItemHomepage> items = [
-    ItemHomepage("All Products", Icons.list_alt, Colors.blue),
-    ItemHomepage("My Products", Icons.inventory_2, Colors.green),
-    ItemHomepage("Create Product", Icons.add_box, Colors.red),
+    ItemHomepage("All Products", Icons.list_alt, brandBlue),
+    ItemHomepage("My Products", Icons.inventory_2, successGreen),
+    ItemHomepage("Create Product", Icons.add_box, brandPink),
   ];
 
   @override
@@ -34,16 +39,17 @@ class MyHomePage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: brandBlue,
       ),
 
-      drawer: const LeftDrawer(), 
+      drawer: const LeftDrawer(),
 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // NPM & Name
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -65,12 +71,13 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
 
+            // ===== GRID =====
             GridView.count(
-              primary: true,
+              primary: true,                
               padding: const EdgeInsets.all(20),
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              crossAxisCount: 3,
+              crossAxisCount: 3,            
               shrinkWrap: true,
               children: items.map((item) => ItemCard(item)).toList(),
             ),
